@@ -8,7 +8,7 @@
     "dev:sass-watch": "node-sass source/scss/style.scss --watch --output=compiled/css --output-style=compressed --source-map=true",
     "dev": "run-p server sass-watch",
     "build:sass": "node-sass source/scss/style.scss --output=compiled/css --output-style=compressed --source-map=true",
-    "deploy:surge": "surge --project . --domain sassy-project.surge.sh",
+    "deploy:surge": "surge --project . --domain kisyular-kg-tgc7noax99ajvzzg.surge.sh",
     "deploy": "run-s build:* deploy:surge"
   },
   "devDependencies": {
