@@ -1,12 +1,21 @@
 {
   "name": "sassy-project",
+  "browser": true,
   "version": "1.0.0",
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "indentation": 2
+    }
+  },
   "scripts": {
-    "dev:hinthtml": "htmlhint www/index.html",
-    "dev:jshint": "standard && node js/clicky.js",
+    "dev": "run-p dev:server dev:sass-watch deploy:surge build:sass",
+    "dev:stylelint": "stylelint source/scss/*.scss",
+    "dev:htmlhint": "htmlhint index.html",
+    "dev:standard": "standard js*.js",
     "dev:server": "live-server",
     "dev:sass-watch": "node-sass source/scss/style.scss --watch --output=compiled/css --output-style=compressed --source-map=true",
-    "dev": "run-p server sass-watch",
+
     "build:sass": "node-sass source/scss/style.scss --output=compiled/css --output-style=compressed --source-map=true",
     "deploy:surge": "surge --project . --domain kisyular-kg-tgc7noax99ajvzzg.surge.sh",
     "deploy": "run-s build:* deploy:surge"
@@ -15,6 +24,11 @@
     "live-server": "^1.2.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
+    "stylelint-config-standard": "^16.0.0",
     "surge": "^0.19.0"
+  },
+  "dependencies": {
+    "htmlhint": "^0.9.13",
+    "standard": "^10.0.0"
   }
 }
